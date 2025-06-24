@@ -41,12 +41,10 @@ O sistema opera da seguinte forma:
 ## 📸 Capturas de Tela e Links
 
 * **Circuito no Wokwi:**
-*(Tire um print do seu circuito no Wokwi e adicione aqui)*
 ![Circuito no Wokwi]![image](https://github.com/user-attachments/assets/7a671c6e-54ad-4956-81ed-0004bfc54ec8)
 
 
 * **Gráficos no ThingSpeak:**
-*(Tire um print dos seus gráficos no ThingSpeak e adicione aqui)*
 ![Gráficos no ThingSpeak]![image](https://github.com/user-attachments/assets/9492c66e-4da9-49af-a61e-938fd934cd51)
 
 
