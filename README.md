@@ -53,10 +53,10 @@ O sistema opera da seguinte forma:
 ## 🚀 Como Replicar o Projeto
 
 * **Link para o Projeto no Wokwi:**
-    `[COLE AQUI O LINK PÚBLICO DO SEU PROJETO WOKWI]`
+    `[COLAR O LINK PÚBLICO DO PROJETO WOKWI]`
 
 * **Link para o Canal no ThingSpeak:**
-    `[COLE AQUI O LINK PÚBLICO DO SEU CANAL THINGSPEAK]`
+    `[COLAR LINK DO THINGSPEAK]`
 
 **Instruções:**
 1.  Abra o projeto no Wokwi.
@@ -70,5 +70,4 @@ O sistema opera da seguinte forma:
 Este projeto pode ser expandido com as seguintes funcionalidades em uma versão física:
 * **Alertas Ativos:** Integração com Telegram, MQTT ou e-mail para enviar notificações automáticas.
 * **Autonomia Energética:** Uso de painel solar e bateria para instalação em locais remotos.
-* **Redundância:** Adição de um sensor de nível tipo boia para confirmação.
 * **Comunicação Robusta:** Uso de LoRaWAN para áreas sem cobertura Wi-Fi.
