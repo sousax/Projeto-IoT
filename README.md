@@ -1,4 +1,4 @@
-# Projeto de IoT: Sistema Inteligente de Alerta Prévio de Alagamento
+# Projeto de IoT: Sistema Inteligente de Alerta de Alagamento
 
 ![Flood Alert](https://img.shields.io/badge/IoT-Alerta%20de%20Alagamento-blue)
 ![Platform](https://img.shields.io/badge/Plataforma-Wokwi-purple)
