@@ -53,10 +53,10 @@ O sistema opera da seguinte forma:
 ## 🚀 Como Replicar o Projeto
 
 * **Link para o Projeto no Wokwi:**
-    `https://wokwi.com/projects/434651680429040641`
+    `[https://wokwi.com/projects/434651680429040641]`
 
 * **Link para o Canal no ThingSpeak:**
-    `https://thingspeak.mathworks.com/channels/2996766`
+    `[https://thingspeak.mathworks.com/channels/2996766]`
 
 **Instruções:**
 1.  Abra o projeto no Wokwi.
