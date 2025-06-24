@@ -1,60 +1,56 @@
-# Projeto de IoT: Estufa Inteligente com ESP32 e ThingSpeak
+# Projeto de IoT: Sistema Inteligente de Alerta Prévio de Alagamento
 
-![Estufa Inteligente](https://img.shields.io/badge/IoT-Estufa%20Inteligente-green)
+![Flood Alert](https://img.shields.io/badge/IoT-Alerta%20de%20Alagamento-blue)
 ![Platform](https://img.shields.io/badge/Plataforma-Wokwi-purple)
 ![Microcontroller](https://img.shields.io/badge/MCU-ESP32-orange)
 
 ## 📖 Descrição do Projeto
 
-Este projeto consiste em um sistema de Internet das Coisas (IoT) para o monitoramento remoto de temperatura e umidade de um ambiente de cultivo indoor (estufa). Utilizando um microcontrolador ESP32 e um sensor DHT22, o sistema coleta dados vitais para a saúde das plantas e os envia em tempo real para a plataforma de nuvem ThingSpeak, onde podem ser visualizados através de gráficos públicos.
+Este projeto é um sistema de Internet das Coisas (IoT) projetado para fornecer alertas prévios sobre riscos de alagamento. Utilizando um microcontrolador ESP32 e um sensor ultrassônico HC-SR04, o sistema monitora o nível da água em pontos estratégicos e envia os dados em tempo real para a plataforma de nuvem ThingSpeak, permitindo a visualização remota e a criação de um histórico para análises preventivas.
 
 ---
 
 ## 🎯 Contexto do Problema
 
-O cultivo de plantas em ambientes fechados (indoor) tem se popularizado, seja para hortaliças em apartamentos ou para espécies que exigem condições climáticas controladas. O sucesso desse cultivo depende diretamente de um ambiente estável. Variações bruscas de temperatura e umidade podem estressar as plantas, atrasar seu crescimento, e até mesmo favorecer o surgimento de pragas e doenças, como fungos. Monitorar essas variáveis manualmente é ineficiente e propenso a falhas. Portanto, a automação desse monitoramento via IoT é fundamental para garantir as condições ideais de forma contínua, otimizando a saúde das plantas e o uso de recursos como água e energia.
+Alagamentos em áreas urbanas são eventos cada vez mais frequentes e devastadores, causando prejuízos materiais e riscos à vida. A falta de um alerta prévio impede que moradores e a defesa civil tomem ações preventivas. Este projeto propõe um sistema de monitoramento de baixo custo que mede o nível da água em tempo real, fornecendo dados cruciais para um sistema de alerta precoce. A automação desse monitoramento via IoT é uma ferramenta poderosa para criar uma resposta rápida e organizada da comunidade frente a um risco iminente.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
 * **Microcontrolador:** ESP32
-* **Sensor:** DHT22 (Temperatura e Umidade)
+* **Sensor:** HC-SR04 (Sensor Ultrassônico de Distância)
 * **Plataforma de Simulação:** Wokwi Simulator
 * **Plataforma de Nuvem (IoT):** ThingSpeak
 * **Linguagem de Programação:** C++ (Arduino Framework)
-* **Bibliotecas:** `WiFi.h`, `ThingSpeak.h`, `DHT.h`
-* **Documentação e Versionamento:** Git e GitHub
+* **Bibliotecas:** `WiFi.h`, `ThingSpeak.h`
 
 ---
 
 ## ⚙️ Explicação de Funcionamento
 
 O sistema opera da seguinte forma:
-1.  **Leitura dos Sensores:** O ESP32, através do pino GPIO 15, realiza a leitura dos dados de temperatura (em Celsius) e umidade relativa do ar (%) a partir do sensor DHT22.
-2.  **Conexão Wi-Fi:** O microcontrolador se conecta à rede Wi-Fi configurada (no caso da simulação, a rede `Wokwi-GUEST`).
-3.  **Envio para a Nuvem:** A cada 20 segundos, o ESP32 envia os valores lidos para um canal público no ThingSpeak, utilizando a biblioteca oficial `ThingSpeak.h` e a API de escrita do canal.
-4.  **Visualização dos Dados:** Os dados são armazenados e exibidos em tempo real no canal do ThingSpeak, através de dois gráficos (um para temperatura e outro para umidade), que podem ser acessados publicamente por qualquer navegador.
+1.  **Instalação Virtual:** O sensor HC-SR04 é posicionado virtualmente acima do ponto a ser medido. A constante `DISTANCIA_CHAO_SECO_CM` no código representa a distância do sensor ao chão quando não há água.
+2.  **Medição:** O sensor emite um pulso ultrassônico e mede o tempo que ele leva para retornar. Com base nesse tempo, o ESP32 calcula a distância até a superfície (que pode ser o chão ou a água).
+3.  **Cálculo de Nível:** O código converte a distância medida em um percentual de nível de água. Por exemplo, se a distância medida diminui, significa que o nível da água está subindo, e o percentual aumenta.
+4.  **Envio para a Nuvem:** A cada 20 segundos, o ESP32 envia os dados de "Distância (cm)" e "Nível da Água (%)" para um canal público no ThingSpeak.
+5.  **Visualização:** Os dados são exibidos em tempo real em gráficos no ThingSpeak, permitindo o acompanhamento remoto do risco de alagamento.
 
 ---
 
 ## 📸 Capturas de Tela e Links
 
-Aqui estão os principais componentes do projeto em funcionamento.
-
-**Circuito no Wokwi:**
+* **Circuito no Wokwi:**
 *(Tire um print do seu circuito no Wokwi e adicione aqui)*
 ![Circuito no Wokwi](./img/wokwi_circuito.png)
 
-**Gráficos no ThingSpeak:**
-*(Tire um print dos seus gráficos no ThingSpeak mostrando os dados e adicione aqui)*
+* **Gráficos no ThingSpeak:**
+*(Tire um print dos seus gráficos no ThingSpeak e adicione aqui)*
 ![Gráficos no ThingSpeak](./img/thingspeak_grafico.png)
 
 ---
 
 ## 🚀 Como Replicar o Projeto
-
-Você pode acessar e replicar este projeto seguindo os links abaixo:
 
 * **Link para o Projeto no Wokwi:**
     `[COLE AQUI O LINK PÚBLICO DO SEU PROJETO WOKWI]`
@@ -64,14 +60,15 @@ Você pode acessar e replicar este projeto seguindo os links abaixo:
 
 **Instruções:**
 1.  Abra o projeto no Wokwi.
-2.  No arquivo `sketch.ino`, insira o ID do seu próprio canal ThingSpeak e sua Chave de API de Escrita (Write API Key) nas variáveis `myChannelNumber` e `myWriteAPIKey`.
-3.  Inicie a simulação. Os dados começarão a ser enviados para o seu canal.
-4.  Para simular diferentes condições, clique no sensor DHT22 no Wokwi e altere os valores de temperatura e umidade.
+2.  No arquivo `sketch.ino`, insira o ID do seu próprio canal ThingSpeak e sua Chave de API de Escrita.
+3.  Ajuste a variável `DISTANCIA_CHAO_SECO_CM` se desejar simular uma altura de instalação diferente.
+4.  Inicie a simulação. Clique no sensor HC-SR04 e arraste o controle deslizante para simular a subida e descida do nível da água.
 
 ---
 
-## 📂 Código-Fonte
-
-O código-fonte completo e comentado está localizado no diretório `/src` deste repositório.
-
-[Link para o código-fonte](./src/sketch.ino)
+## 💡 Melhorias Futuras (Não implementadas)
+Este projeto pode ser expandido com as seguintes funcionalidades em uma versão física:
+* **Alertas Ativos:** Integração com Telegram, MQTT ou e-mail para enviar notificações automáticas.
+* **Autonomia Energética:** Uso de painel solar e bateria para instalação em locais remotos.
+* **Redundância:** Adição de um sensor de nível tipo boia para confirmação.
+* **Comunicação Robusta:** Uso de LoRaWAN para áreas sem cobertura Wi-Fi.
