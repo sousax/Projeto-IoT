@@ -71,3 +71,9 @@ Este projeto pode ser expandido com as seguintes funcionalidades em uma versão 
 * **Alertas Ativos:** Integração com Telegram, MQTT ou e-mail para enviar notificações automáticas.
 * **Autonomia Energética:** Uso de painel solar e bateria para instalação em locais remotos.
 * **Comunicação Robusta:** Uso de LoRaWAN para áreas sem cobertura Wi-Fi.
+
+Feito por:
+
+Eduardo Miranda - CB3026604
+Maria Eduarda - CB3025063
+Pedro Xavier - CB3027376
