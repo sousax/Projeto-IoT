@@ -47,7 +47,8 @@ O sistema opera da seguinte forma:
 * **Gráficos no ThingSpeak:**
 ![Gráficos no ThingSpeak]![image](https://github.com/user-attachments/assets/9492c66e-4da9-49af-a61e-938fd934cd51)
 
-
+* **Vídeo do funcionamento e explicações**
+![Vídeo explicativo]![(https://youtu.be/HAYhvRF6xn4)]
 ---
 
 ## 🚀 Como Replicar o Projeto
